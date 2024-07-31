@@ -19,6 +19,8 @@ jobs:
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       
     - name: Build the Docker image
-      run: docker build -t $DOCKER_USERNAME/wisecow .
+      run: docker build -t wisecow .
+    - name: tag Docker image
+      run: docker -tag wisecow:latest $DOCKER_USERNAME/wisecow:latest
     - name: Push to Dockerhub
       run: docker push $DOCKER_USERNAME/wisecow:latest
