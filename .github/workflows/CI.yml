@@ -21,6 +21,6 @@ jobs:
     - name: Build the Docker image
       run: docker build -t wisecow .
     - name: tag Docker image
-      run: docker tag wisecow:latest $DOCKER_USERNAME/wisecow:latest
+      run: docker tag wisecow:latest rahulrajak/wisecow:latest
     - name: Push to Dockerhub
-      run: docker push $DOCKER_USERNAME/wisecow:latest
+      run: docker push rahulrajak/wisecow:latest
