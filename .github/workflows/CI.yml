@@ -27,20 +27,3 @@ jobs:
 
     - name: Push Docker image to Docker Hub
       run: docker push rahulrajak/wisecow:latest
-
-    - name: Install kubectl
-      run: |
-        curl -LO "https://dl.k8s.io/release/v1.25.0/bin/linux/amd64/kubectl"
-        chmod +x ./kubectl
-        sudo mv ./kubectl /usr/local/bin/kubectl
-        kubectl version --client
-
-    - name: Configure kubectl
-      run: echo "$KUBECONFIG" > $HOME/.kube/config
-
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl apply -f wisecow-deployment.yml
-        kubectl apply -f wisecow-service.yml
-        kubectl apply -f wisecow-ingress.yaml
-        kubectl rollout status deployment/wisecow-deployment
