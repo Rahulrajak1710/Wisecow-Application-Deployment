@@ -36,7 +36,7 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
 
     - name: Update kubeconfig for EKS
-      run: aws eks update-kubeconfig --name project --region ${{ secrets.AWS_REGION }}
+      run: aws eks update-kubeconfig --name project11 --region ${{ secrets.AWS_REGION }}
 
     - name: Set up kubectl
       uses: azure/setup-kubectl@v1
